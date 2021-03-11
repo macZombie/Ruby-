@@ -1,21 +1,4 @@
 #!/usr/bin/ruby
-#File: top.rb
-#
-# Abstract: Ruby Framework Component
-# 
-# Copyright (C) 2017 Dialog Semiconductor GmbH and its Affiliates, unpublished work
-# 
-# This computer program includes Confidential, Proprietary Information and is a
-# Trade Secret of Dialog Semiconductor GmbH and its Affiliates. All use, disclosure,
-# and/or reproduction is prohibited unless authorized in writing. All Rights Reserved.
-#
-# Fri 20/01/17     Revision: ( Under separate revision control )
-#
-# Notes: 
-#
-#
-#
-#
 
 # top.rb
 
@@ -35,6 +18,7 @@ require './bitmapFunctions.rb'
 require './registerYamlFile.rb'
 require './universalConstructor.rb'
 require './binaryFile.rb'
+require './svgImage.rb'
 
 
 # SPECIFIC FOR REGISTER MAP OF PROJECT ( YAML )
@@ -121,7 +105,7 @@ end
 
 
 # Diagrams/Plots
-if ( true )
+if ( false )
         
         
         fillSineCache # build lookup table for trig functions first
@@ -372,6 +356,22 @@ end
 
 
 
+
+
+
+# Example SVG image
+if ( true )
+        
+        myImage = SVGImage.new("myImage.svg")
+        
+       # myImage.open
+        
+        
+       # myImage.close
+        
+        myImage.test 
+        
+end
 
 
 END { print "\nINFO: End of ",$PROGRAM_NAME,"\n\n" }

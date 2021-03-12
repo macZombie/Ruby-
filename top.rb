@@ -1,5 +1,3 @@
-#!/usr/bin/ruby
-
 # top.rb
 
 # Top Level test/demo
@@ -34,6 +32,7 @@ if ( false )
         myFile.close
         myFile.dumpContents
 end
+
 
 # File output
 if ( false )
@@ -168,9 +167,6 @@ if ( false )
 end
 
 
-
-
-
 # Simple image processing
 if ( false )
         
@@ -207,9 +203,6 @@ if ( false )
           
         
 end
-
-
-
 
 # YAML to CSV extraction. Custom class for types of YAML/XML
 if ( false )
@@ -269,8 +262,6 @@ if ( false )
         #############################################################
 
 end
-
-
 
 
 # Example Universal Constructor
@@ -338,12 +329,6 @@ if ( false )
 end
 
 
-
-
-
-
-
-
 if ( false )
         
         myBinaryFile = BinaryFile.new("zonk.bmp")
@@ -353,14 +338,8 @@ if ( false )
 end
 
 
-
-
-
-
-
-
 # Example SVG image
-if ( true )
+if ( false )
         
         myImage = SVGImage.new("myImage.svg")
         
@@ -371,6 +350,83 @@ if ( true )
         
         myImage.test 
         
+end
+
+# Experimental Universal Constructor
+if ( true )
+        
+        print "\n\n\nINFO: *****     UNIVERSAL CONSTRUCTOR EXPERIMENT    *****"
+        
+        wordCsvFileName = "word.csv"
+
+
+        classConstructor("Word",wordCsvFileName)
+
+        objectConstructor("Word",wordCsvFileName,"wordname")
+
+        print "\n",$bottom.getName
+        print "\n",$bottom.getNamelengthaddress
+
+
+=begin
+        yamlFileName = "register_table.yaml"
+        registerCsvFileName  = ""
+        registerCsvFileName <<  yamlFileName.sub(".yaml","") << "A" << ".csv"
+        
+        
+        print "\nINFO: build Register Class"
+        classConstructor("Register",registerCsvFileName)
+        print "\nINFO: build Register Class done"
+        
+        print "\nINFO: build Register Objects"
+        objectConstructor("Register",registerCsvFileName,"name")
+        print "\nINFO: build Register Objects done"
+        
+
+        bitFieldCsvFileName  = ""
+        bitFieldCsvFileName <<  yamlFileName.sub(".yaml","") << "B" << ".csv"
+        
+        
+        print "\nINFO: build BitField Class"
+        classConstructor("BitField",bitFieldCsvFileName )
+        print "\nINFO: build BitField Class done"
+       
+        print "\nINFO: build BitField Objects"
+        objectConstructor("BitField", bitFieldCsvFileName,"uniqueid")
+        print "\nINFO: build BitField Objects done"
+        
+        
+        print "\n", bitFieldCsvFileName
+        
+
+        print "\n\n\nINFO: *****     TEST UNIVERSAL CONSTRUCTOR     *****"
+        
+         #registerCsvFile = CsvFile.new( registerCsvFileName)
+        registerCsvFile = CsvFile.new( "register_tableA.csv" )
+        registerCsvFile.populateIndexArray("name")
+        #registerCsvFile.dumpIndexArray    
+        buildResolver("Register" ,   registerCsvFile.getIndexArray , "name" )
+        
+        registerCsvFile.getIndexArray.each do
+                |item|
+                print "\n",item," "
+                print "\n",item," ",getRegisterObject(item).getName," ",getRegisterObject(item).getAddress
+        end
+                
+        #bitFieldCsvFile = CsvFile.new( bitFieldCsvFileName)
+        bitFieldCsvFile = CsvFile.new( "register_tableB.csv" )
+        bitFieldCsvFile.populateIndexArray("uniqueID")
+        #bitFieldCsvFile.dumpIndexArray    
+        buildResolver("BitField" ,   bitFieldCsvFile.getIndexArray , "uniqueid" )
+        
+        bitFieldCsvFile.getIndexArray.each do
+                |item|
+                print "\n",item," "
+                print "\n",item," ",getBitFieldObject(item).getUniqueid
+        end
+        
+=end              
+
 end
 
 

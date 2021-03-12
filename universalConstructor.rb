@@ -56,16 +56,17 @@ class <%=className%>
 
         executableString << templateStart.result(binding)
 
-     
+        #print "\n",topLineList
 
         topLineList.each do
                 |item|
+                #print "\n>",item,"<"
                 
-                executableString << "        @"<< item << " = nil ;\n"
+                executableString << "        @" << item << " = nil ;\n"
                 
         end   
         
-        
+        #print "\n",executableString
         
         executableString << "\n\n        def initialize("
         executableString << topLineList.join(",")
@@ -112,6 +113,9 @@ end ; # of class <%=className%>
 }
 
         executableString << templateEnd.result(binding)
+
+
+        #print "\n",executableString
     
         metaDebug(executableString)
     
@@ -182,6 +186,10 @@ end
 
 
 
+
+
+
+
 def objectConstructor(className,tableFileName,objectName)
               
         nameHash = Hash.new
@@ -189,16 +197,15 @@ def objectConstructor(className,tableFileName,objectName)
         inputFile = CsvFile.new(tableFileName)
    
         topLine = inputFile.getTopLine
+
         topLine = topLine.downcase
+
         topLineList = topLine.split(",")
+
         errorTrap(topLineList)
-        
-        #print "\n",topLineList," ",objectName
-        
+
         nameColumn = topLineList.index(objectName)
-        
-        #print "\nnameColumn ",nameColumn
-        
+
         name = topLineList[nameColumn]
         
         

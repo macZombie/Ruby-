@@ -1,0 +1,3 @@
+wordName,nameAddress,wordLengthAddress,linkAddress,nameLengthAddress,codeFieldAddress,parameterFieldAddress,lastAddress,name,wordLength,link,nameLength,codeField,parameterField,last
+bottom,0,6,7,8,9,10,11,bottom,5,0,6,99,98,124
+top,12,15,16,17,18,19,20,top,5,8,3,99,98,124
